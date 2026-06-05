@@ -1,9 +1,9 @@
 import DashboardNav from '@/components/DashboardNav'
 
 const navItems = [
+  { label: 'Overview', href: '/dashboard/admin', exact: true },
   { label: 'Briefs', href: '/dashboard/admin/briefs' },
   { label: 'Users', href: '/dashboard/admin/users' },
-  { label: 'Assignments', href: '/dashboard/admin/assignments' },
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
