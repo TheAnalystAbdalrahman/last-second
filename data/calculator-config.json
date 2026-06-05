@@ -1,0 +1,45 @@
+{
+  "materials": {
+    "pla": {
+      "label": "PLA — FDM",
+      "densityGcm3": 1.24,
+      "costPerGram": 0.025,
+      "baseHourlyRate": 0.8,
+      "active": true
+    },
+    "resin": {
+      "label": "Resin — SLA",
+      "densityGcm3": 1.1,
+      "costPerGram": 0.065,
+      "baseHourlyRate": 1.2,
+      "active": true
+    },
+    "wood-fill-pla": {
+      "label": "Wood-fill PLA",
+      "densityGcm3": 1.18,
+      "costPerGram": 0.045,
+      "baseHourlyRate": 0.8,
+      "active": true
+    }
+  },
+  "infillMultiplier": {
+    "draft": 0.15,
+    "standard": 0.2,
+    "solid": 0.4
+  },
+  "platformMarginMultiplier": 1.35,
+  "priceRangeSpread": 0.2,
+  "minimumPriceFloor": 1.5,
+  "minimumMaxPriceFloor": 3,
+  "printSpeedCm3PerHour": 8,
+  "resinSpeedCm3PerHour": 5,
+  "surgePricingActive": false,
+  "surgePercentage": 0.25,
+  "ctaRoute": "submit-brief",
+  "ctaCustomUrl": "",
+  "locales": [
+    { "locale": "English", "currency": "USD", "status": "active" },
+    { "locale": "Turkish", "currency": "TRY", "status": "coming-soon" },
+    { "locale": "Arabic", "currency": "USD", "status": "coming-soon" }
+  ]
+}
