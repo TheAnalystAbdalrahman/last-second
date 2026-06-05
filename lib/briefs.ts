@@ -129,3 +129,32 @@ export function getFileNameFromUrl(url: string): string {
 export function isImageUrl(url: string): boolean {
   return /\.(jpg|jpeg|png|gif|webp)(\?|$)/i.test(url)
 }
+
+export function getDaysRemaining(deadline: string): number {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const due = new Date(deadline + 'T00:00:00')
+  return Math.ceil((due.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+}
+
+export function isDeadlineUrgent(deadline: string): boolean {
+  return getDaysRemaining(deadline) <= 3
+}
+
+export function getDeadlineCountdownColor(daysRemaining: number): string {
+  if (daysRemaining <= 3) return '#dc341e'
+  if (daysRemaining <= 7) return '#ffc900'
+  return '#000000'
+}
+
+export type DeliverableReviewStatus = 'pending_review' | 'approved' | 'rejected'
+
+const DELIVERABLE_STATUS_LABELS: Record<DeliverableReviewStatus, string> = {
+  pending_review: 'Pending Review',
+  approved: 'Approved',
+  rejected: 'Revision Requested',
+}
+
+export function getDeliverableStatusLabel(status: DeliverableReviewStatus): string {
+  return DELIVERABLE_STATUS_LABELS[status] ?? status
+}

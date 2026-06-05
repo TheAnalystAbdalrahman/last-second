@@ -1,13 +1,24 @@
+import { redirect } from 'next/navigation'
 import DashboardNav from '@/components/DashboardNav'
+import { createClient } from '@/lib/supabase/server'
 
 const navItems = [
   { label: 'My Assignments', href: '/dashboard/provider' },
 ]
 
-export default function ProviderLayout({ children }: { children: React.ReactNode }) {
+export default async function ProviderLayout({ children }: { children: React.ReactNode }) {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    redirect('/sign-in')
+  }
+
   return (
     <div style={{ minHeight: '100vh', background: '#f4f4f0' }}>
-      <DashboardNav items={navItems} />
+      <DashboardNav items={navItems} userId={user.id} role="provider" />
       <main style={{ padding: 32 }}>{children}</main>
     </div>
   )

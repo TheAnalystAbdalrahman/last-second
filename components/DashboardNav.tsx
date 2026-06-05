@@ -2,9 +2,11 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { Bell, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
+import NotificationsBell from '@/components/NotificationsBell'
+import type { DashboardRole } from '@/lib/notifications'
 
 interface NavItem {
   label: string
@@ -14,9 +16,11 @@ interface NavItem {
 
 interface DashboardNavProps {
   items: NavItem[]
+  userId: string
+  role: DashboardRole
 }
 
-export default function DashboardNav({ items }: DashboardNavProps) {
+export default function DashboardNav({ items, userId, role }: DashboardNavProps) {
   const pathname = usePathname()
   const router = useRouter()
   const [profileOpen, setProfileOpen] = useState(false)
@@ -106,24 +110,7 @@ export default function DashboardNav({ items }: DashboardNavProps) {
 
       {/* Right controls */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-        {/* Notifications */}
-        <button
-          style={{
-            width: 36,
-            height: 36,
-            borderRadius: '50%',
-            background: 'transparent',
-            border: '1px solid #d1d5dc',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#000',
-          }}
-          aria-label="Notifications"
-        >
-          <Bell size={16} />
-        </button>
+        <NotificationsBell userId={userId} role={role} />
 
         {/* Profile menu */}
         <div style={{ position: 'relative' }}>
