@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getCalculatorConfig } from '@/lib/calculator-config.server'
 import { getCtaHref } from '@/lib/calculator-config.types'
 import CalculatorApp from '@/components/calculator/CalculatorApp'
+import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import './calculator.css'
 
 export const metadata: Metadata = {
@@ -62,6 +63,8 @@ export default async function CalculatorPage() {
 
         <CalculatorApp config={config} />
       </main>
+
+      <TestimonialsSection />
 
       <footer className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-2 px-6 py-8 text-sm tracking-[-0.028px] text-graphite sm:flex-row md:px-12">
         <span>© 2025 Last Second</span>

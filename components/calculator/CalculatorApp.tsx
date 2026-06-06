@@ -72,11 +72,12 @@ export default function CalculatorApp({ config }: CalculatorAppProps) {
         <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-6 px-6 md:flex-row md:items-center md:px-12">
           <div className="max-w-xl">
             <h2 className="text-[30px] font-bold leading-tight tracking-[-0.39px] text-ink">
-              Architecture students in Turkey?
+              You told yourself you&apos;d start early this time.
             </h2>
             <p className="mt-3 text-lg tracking-[-0.108px] text-graphite">
-              Last Second connects you with skilled providers who can print, model, and deliver
-              your project — before the deadline.
+              You didn&apos;t. That&apos;s fine — Last Second connects you with providers
+              who thrive in the 90th minute. Print, model, and deliver your
+              architecture project before the final whistle.
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap gap-3">

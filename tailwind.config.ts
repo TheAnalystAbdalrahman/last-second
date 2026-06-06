@@ -29,6 +29,22 @@ const config: Config = {
       fontFamily: {
         primary: ['Inter', 'ui-sans-serif', 'system-ui'],
       },
+      letterSpacing: {
+        display: '-0.96px',
+        heading: '-0.612px',
+        subheading: '-0.264px',
+        body: '-0.064px',
+        caption: '-0.028px',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 24s linear infinite',
+      },
     },
   },
   plugins: [],
